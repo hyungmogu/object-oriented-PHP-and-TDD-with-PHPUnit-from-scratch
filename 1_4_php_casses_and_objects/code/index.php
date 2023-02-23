@@ -17,6 +17,7 @@
     }
 
     $introduction = new Video();
-    echo $introduction->play();
+    $introduction->author = "Terry O";
+    echo nl2br("{$introduction->play()}\n{$introduction->pause()}\n{$introduction->author}");
     var_dump($introduction)
 ?>
