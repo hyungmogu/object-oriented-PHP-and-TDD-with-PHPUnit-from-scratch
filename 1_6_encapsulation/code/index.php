@@ -1,9 +1,10 @@
 <?php
     class Video {
-        public $type;
-        public $duration;
-        public $published = false;
-        public $title = null;
+        private $type;
+        private $duration;
+        protected $published = false;
+        private $title = null;
+        private $playStatus = false;
 
         public function __construct($type, $duration, $title) 
         {
@@ -12,9 +13,65 @@
             $this->title = $title;
         }
 
+        public function setType(string $type) 
+        {
+            $this->type = $type;
+        }
+
+        public function getType() 
+        {
+            return $this->type;
+        }
+
+        public function setDuration(string $duration) 
+        {
+            $this->duration = $duration;
+        }
+
+        public function getDuration() 
+        {
+            return $this->duration;
+        }
+
+        public function setTitle(string $title) 
+        {
+            $this->title = $title;
+        }
+
+        public function getTitle() 
+        {
+            return $this->title;
+        }
+
+        public function setPublished(bool $published) 
+        {
+            $this->published = $published;
+        }
+
+        private function getPublished() 
+        {
+            return $this->published;
+        }
+
+        public function setPlayStatus(bool $playStatus) 
+        {
+            $this->playStatus = $playStatus;
+        }
+
+        public function getPlayStatus() 
+        {
+            return $this->playStatus;
+        }
+
         public function play() 
         {
-            return $this->published ? "This video is playing" : "This video is not available yet"; 
+
+            if ($this->getPublished()) {
+                $this->setPlayStatus(true);
+                return "The video is playing"
+            }
+
+            return "This video is not available yet"; 
         }
 
         public function pause()
