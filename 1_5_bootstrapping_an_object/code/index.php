@@ -28,4 +28,5 @@
     $video2 = new Video("mp4", "13.30", "The Second Video");
 
     var_dump($introduction);
+    var_dump($video2);
 ?>
