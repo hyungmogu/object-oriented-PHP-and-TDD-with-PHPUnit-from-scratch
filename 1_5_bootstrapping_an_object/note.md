@@ -19,6 +19,21 @@ Class Video {
 }
 ```
 
+3. parameter can become strongly typed by adding type beside its parameter
+
+**Example**
+
+```
+Class Video {
+    ...
+
+    public function __constructor(string $type = "mp4", float $duration, string $title)
+    {
+        ...
+    }
+}
+```
+
 ## Descructor
 
 1. Destroys an object to free up memory

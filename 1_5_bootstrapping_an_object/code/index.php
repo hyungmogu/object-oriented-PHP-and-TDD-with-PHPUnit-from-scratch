@@ -21,6 +21,10 @@
         {
             return $this->published ? "This video is paused" : "";
         }
+
+        public function __destruct() {
+            echo "Destroying instance of " . get_class() . " class";
+        }
     }
 
     header("Content-Type: text/plain");
