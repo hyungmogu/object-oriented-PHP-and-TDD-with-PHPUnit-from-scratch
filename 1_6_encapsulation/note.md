@@ -42,7 +42,7 @@
 ```
 <?php
     class Video {
-        private $title;
+        private $type;
         private $duration;
         protected $published = false;
         private $title;
@@ -59,5 +59,21 @@
 **Example**
 
 ```
+<?php
 
+    class Video {
+        private $type;
+        private $duration;
+        protected $published = false;
+        private $title;
+
+        public function setTitle(string $title) {
+            $this->title = $title;
+        }
+
+        public function getTitle(string $title) {
+            return $this->title;
+        }
+    }
+?>
 ```
