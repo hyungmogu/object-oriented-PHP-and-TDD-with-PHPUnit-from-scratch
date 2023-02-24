@@ -5,9 +5,11 @@
         public $published = false;
         public $title = null;
 
-        public function __construct() 
+        public function __construct($type, $duration, $title) 
         {
-            
+            $this->type = $type;
+            $this->duration = $duration;
+            $this->title = $title;
         }
 
         public function play() 
@@ -21,8 +23,9 @@
         }
     }
 
-    $introduction = new Video();
-    $introduction->author = "Terry O";
-    echo nl2br("{$introduction->play()}\n{$introduction->pause()}\n{$introduction->author}");
-    var_dump($introduction)
+    header("Content-Type: text/plain");
+    $introduction = new Video("mp4", "10.30", "Introduction to OOP");
+    $video2 = new Video("mp4", "13.30", "The Second Video");
+
+    var_dump($introduction);
 ?>
