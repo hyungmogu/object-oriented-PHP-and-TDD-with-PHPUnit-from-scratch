@@ -20,6 +20,7 @@
 
 ## Method Chaining
 - Is done by returning entire class
+- `return new static` returns the entire class object
 
 ```
 <?php
