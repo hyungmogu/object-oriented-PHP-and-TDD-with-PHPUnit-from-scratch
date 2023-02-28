@@ -104,3 +104,23 @@
 ?>
 ```
 
+```
+array(5) {
+  [0]=>
+  string(1) "="
+  [1]=>
+  string(2) "<>"
+  [2]=>
+  string(3) "and"
+  [3]=>
+  string(2) "or"
+  [4]=>
+  string(4) "like"
+}
+object(Database)#1 (1) {
+  ["table":"Database":private]=>
+  string(5) "users"
+}
+string(31) "connected to database using pdo"
+string(66) "INSERTING INTO users values({"username":"Terry","password":"123"})"
+```
