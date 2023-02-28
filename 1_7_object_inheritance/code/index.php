@@ -1,93 +1,50 @@
 <?php
-    class Video {
-        private $type;
-        private $duration;
-        protected $published = false;
-        private $title = null;
-        private $playStatus = false;
-
-        public function __construct($type, $duration, $title) 
+    class Animal {
+        public $weight;
+        
+        public function eat() 
         {
-            $this->type = $type;
-            $this->duration = $duration;
-            $this->title = $title;
+            var_dump("All animals can eat");
         }
 
-        public function setType(string $type) 
+        public function reproduce()
         {
-            $this->type = $type;
-        }
-
-        public function getType() 
-        {
-            return $this->type;
-        }
-
-        public function setDuration(string $duration) 
-        {
-            $this->duration = $duration;
-        }
-
-        public function getDuration() 
-        {
-            return $this->duration;
-        }
-
-        public function setTitle(string $title) 
-        {
-            $this->title = $title;
-        }
-
-        public function getTitle() 
-        {
-            return $this->title;
-        }
-
-        public function setPublished(bool $published) 
-        {
-            $this->published = $published;
-        }
-
-        private function getPublished() 
-        {
-            return $this->published;
-        }
-
-        public function setPlayStatus(bool $playStatus) 
-        {
-            $this->playStatus = $playStatus;
-        }
-
-        public function getPlayStatus() 
-        {
-            return $this->playStatus;
-        }
-
-        public function play() 
-        {
-
-            if ($this->getPublished()) {
-                $this->setPlayStatus(true);
-                return "The video is playing"
-            }
-
-            return "This video is not available yet"; 
-        }
-
-        public function pause()
-        {
-            return $this->published ? "This video is paused" : "";
-        }
-
-        public function __destruct() {
-            echo "Destroying instance of " . get_class() . " class";
+            var_dump("All animals can reproduce");
         }
     }
 
-    header("Content-Type: text/plain");
-    $introduction = new Video("mp4", "10.30", "Introduction to OOP");
-    $video2 = new Video("mp4", "13.30", "The Second Video");
+    class Mammal extends Animal {
+        public $heartRate;
 
-    var_dump($introduction);
-    var_dump($video2);
+        public function breathe()
+        {
+            var_dump("I can breathe because I am a mammal");
+        }
+    }
+
+    class Dog extends Mammal {
+        public $color;
+        
+        public function bark() 
+        {
+            var_dump("I can bark because I am a " . strtolower(get_class()));
+        }
+
+        public function chase()
+        {
+            var_dump("I am chasing a rabbit");
+        }
+    }
+
+    header("Content-Type:text/plain", true);
+    $brown = new Dog();
+    $brown->weight = 20;
+    $brown->heartRate = "okay";
+    $brown->color = "brown";
+    var_dump($brown);
+    $brown->bark();
+    $brown->eat();
+    $brown->reproduce();
+    $brown->breathe();
+    $brown->chase();
 ?>
