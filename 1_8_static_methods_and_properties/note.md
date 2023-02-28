@@ -29,7 +29,7 @@
 
 ## Accessing static variable
 
-1. `self::` is used access non-instantiated class from within
+1. `self::` is used access static method / attributes from within
 
 ```
 <?php
@@ -43,6 +43,10 @@
         
         public static function create(array $data) {
             var_dump("creating new data base with " . self::$pdo);
+        }
+
+        public function insert(array $data) {
+            var_dump("inserting new data base with " . self::$pdo);
         }
     }
 ?>

@@ -6,18 +6,26 @@
         private $table;
 
         public static function connect(string $method) {
-            $obj = new static;
-            $obj->table;
             self::$pdo = $method;
+
+            return new static;
+        }
+
+        public function table(string $name)
+        {
+            $this->table = $name;
+
+            return $this;
         }
         
-        public static function create(array $data) {
-            var_dump("creating new data base with " . self::$pdo);
+        public function insert(array $data) {
+            var_dump("connected to database using " . self::$pdo);
+            var_dump("INSERTING INTO {$this->table} values(" . json_encode($data) .")");
         }
+        
     }
 
     header("Content-Type:text/plain", true);
     var_dump(Database::$operators);
-    Database::connect("pdo");
-    Database::create([]);
+    Database::connect("pdo")->table("users")->insert(['username' => 'Terry', 'password' => '123']);
 ?>
