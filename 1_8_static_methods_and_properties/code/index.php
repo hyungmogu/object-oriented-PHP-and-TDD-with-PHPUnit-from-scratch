@@ -6,9 +6,9 @@
         private $table;
 
         public static function connect(string $method) {
-            $obj = new static;
-            $obj->table;
-            self::$pdo = $method;
+            static::$pdo = $method;
+
+            return new static;
         }
         
         public static function create(array $data) {
