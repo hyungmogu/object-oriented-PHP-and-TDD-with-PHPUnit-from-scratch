@@ -42,3 +42,27 @@
 ## interface
 
 1. `interface` keyword beside class allows only definition
+2. `interface` can be used in this case, but all methods needs to be defined in each subclasses
+
+## MySQL
+
+1. `MySQL` doesn't support return query as objects feature
+2. `MySQL` requires workaround if it wants to return as objects
+
+**/code/src/MySQLiClient.php**
+```
+<?php
+
+class MySQLiCLient extends Database
+{
+    ...
+
+    public function get() 
+    {
+        return json_decode(json_encode($this->statement->fetch_all(MYSQLI_ASSOC)));
+    }
+}
+?>
+```
+
+<img src="https://user-images.githubusercontent.com/6856382/222318588-f4be8d72-61d1-48b6-a1b9-19bfcc9179e2.png">

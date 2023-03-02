@@ -5,9 +5,14 @@
 
     
     header("Content-Type:text/plain", true);
-    $pdo = (new PDOClient('mysql', 'localhost', 'stroe', 'stroe', 'connect'))->connect();
+    // $pdo = (new PDOClient('mysql', 'localhost', 'store', 'store', 'connect'))->connect();
+    $mysqli = (new MySQLiClient('mysql', 'localhost', 'store', 'store', 'connect'))->connect();
 
-    $products = $pdo->select("SELECT * FROM products")->get();
+    // $products = $pdo->select("SELECT * FROM products")->get();
+    $products = $mysqli->select("SELECT * FROM products")->get();
 
-    var_dump($products);
+    foreach ($product as $product)
+    {
+        var_dump($product->name);
+    }
 ?>
