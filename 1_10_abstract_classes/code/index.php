@@ -3,5 +3,6 @@
         include "src/$class.php";
     });
 
+    
     header("Content-Type:text/plain", true);
 ?>
