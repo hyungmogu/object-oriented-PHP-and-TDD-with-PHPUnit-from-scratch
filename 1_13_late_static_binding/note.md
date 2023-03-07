@@ -58,4 +58,14 @@ abstract class PreyMethod
 }
 ?>
 ```
+```
+class Rabbit extends PreyMethod implements Prey
+{
+    
+}
+```
 
+**Output**
+```
+string(35) "Rabbit has been killed by a dog"
+```
