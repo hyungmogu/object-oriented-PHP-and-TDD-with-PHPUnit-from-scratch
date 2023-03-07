@@ -69,4 +69,3 @@ class Rabbit extends PreyMethod implements Prey
 ```
 string(35) "Rabbit has been killed by a dog"
 ```
-#
