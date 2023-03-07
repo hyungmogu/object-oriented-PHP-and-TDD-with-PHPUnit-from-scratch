@@ -28,6 +28,4 @@
 
         abstract public function get();
     }
-
-    header("Content-Type:text/plain", true);
 ?>
